@@ -1,144 +1,74 @@
 'use strict';
 
-'use strict';
+// function expresion ======================================================
 
-// const dog = "dog";
+// const userList = ['admin', 'manager', 'employe'];
 
-// let cat = "cat";
+// const isUserPresent = function(user, listOfUser) {
+//   return listOfUser.includes(user);
+// };
 
-// const dog = "Bob";
+// console.log(isUserPresent('manager', userList));
 
-// let cat = "Tomas";
+// function declaration ==================================================
 
-// let password, salary;
-// const userName = 'Bob';
-// const userLastName = 'Dilan';
-// const age = 55;
-// let isLoggedIn = false;
-// const VAT = 0.2;
+// const userNames = getAllUserNames(userList);
+// console.log(userNames);
 
-// console.log(userName, userLastName);
-// // alert(userName);
-// console.log(userName / age); //NaN
-
-// // console.log(1 === true); //false
-// // console.log("" === false); //false
-// // console.log(typeof userName);
-// // NaN = NaN; // false
-
-// isLoggedIn = confirm('Are you loggedin?');
-
-// if (isLoggedIn) {
-//   const salaryWithoutVAT = prompt('enter your salary');
-//   salary = salaryWithoutVAT * (1 - VAT);
-//   console.log(salary);
-// }
-
-// //+ перед переменной преобразует ее в число(номер);
-
-// const foo = 9 % 3;
-// let isEven = foo === 0;
-// console.log(isEven);
-
-// // Проверка на число
-// let bar = Number('dasdas');
-// console.log(Number.isNaN(bar));
-
-// console.log(userName.toUpperCase());
-
-// console.log(userLastName.indexOf('D'));
-
-// console.log(userLastName.includes('n')); // Так как это выдаст буль, можно это использовать для if.
-
-// const result = `Hello ${userName} ${userLastName}!!
-// Your age is ${age}. Your salary ${salary}`;
-// alert(result);
-
-// if (userName && userLastName && salary) {
-//   console.log('is valid');
-// } else if (userName || userLastName || salary) {
-//   console.log('something fullfilled');
-// }
-
-// let tax;
-// const age = 20;
-
-// const tax = age > 50 ? 10 : 5;
-
-// // Тоже самое
-// if (age > 50) {
-//   tax = 10;
-// } else {
-//   tax = 5;
-// }
-
-// let answer;
-// let userInput = prompt('Введите ваш возраст');
-
-// if (userInput >= 10 && userInput <= 20) {
-//   answer = 'child';
-// } else if (userInput === '') {
-//   answer = 'А ввести данные?';
-// } else if (userInput === null) {
-//   answer = 'Не введен возраст';
-// } else if (userInput > 21 && userInput <= 50) {
-//   answer = 'adult';
-// } else if (userInput > 51) {
-//   answer = 'granny';
-// } else {
-//   answer = 'ссыкун';
-// }
-
-// alert(answer);
-
-// let apple = 10;
-
-// // while (apple >= 0) {
-// //   console.log(`apple=${apple}`);
-// //   // apple--;
-// //   apple = apple - 1;
-// // }
-
-// // do {
-// //   console.log(`apple=${apple}`);
-// // } while (apple > 200);
-// // {
-// //   console.log('error');
-// // }
-
-// for (let i = 0; i < apple; i++) {
-//   console.log(`index=${i}`);
-// }
-
-const userName = 'Bob';
-const userLastName = 'Dilan';
-const userLogin = 'Bob91';
-const userPassword = 'Dilan91';
-
-let isUserLoginValid = false;
-let isUserPasswordValid = false;
-let userInput;
-
-// do {
-//   userInput = prompt('Введите свой логин');
-// } while (userInput !== userLogin);
-
-// while (userInput !== userLogin) {
-//   userInput = prompt('Введите свой логин');
-// }
-
-// while (userInput !== userLogin) {
-//   userInput = prompt('Введите свой логин');
-//   if (userInput === userLogin) {
-//     console.log('Woooooooooooooooooooooo');
+// function getAllUserNames(list) {
+//   let result = '';
+//   for (let user of list) {
+//     result = result + user + ' ';
 //   }
+//   return result;
 // }
 
-while (!isUserLoginValid) {
-  userInput = prompt('Введите свой логин');
+//======================================================================
 
-  if (userInput === userLogin) {
-    isUserLoginValid = true;
-    console.log('OOOOOOeeeeeeeeeeee');
+// const calculateSquare = function(width = 50, height = 100) {
+//   console.log(arguments);
+//   console.log(Array.from(arguments)); //Преобразовали псевдомассив
+//   return width * height;
+// };
+
+// const square = calculateSquare(500, 500, 600, 5, 10);
+
+// console.log(square);
+
+//======================================================================
+
+// const sumAllArguments = function(a, b, ...args) {
+//   let sum = 0;
+//   for (let i = 0; i < arguments.length; i++) {
+//     sum = sum + arguments[i];
+//   }
+
+//   console.log(args);
+//   return sum;
+// };
+
+// const sum = sumAllArguments(50, 40, 30, 60, 10);
+// console.log(sum);
+
+// let userInput1 = Number(prompt());
+// let userInput2 = Number(prompt());
+
+// const sumNumber = function(a, b) {
+//   return a + b;
+// };
+
+// console.log(sumNumber(userInput1, userInput2));
+
+let userList = ['sada', 'aswacca', 'asdassdasads'];
+
+let userInput = prompt();
+
+const userListArray = function(input) {
+  if (userInput) {
+    userList.push(input);
+    console.log('Вы добавлены');
   }
-}
+  return userList;
+};
+
+console.log(userListArray(userInput));
