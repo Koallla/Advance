@@ -1,74 +1,145 @@
 'use strict';
 
-// function expresion ======================================================
+// ====================================================================================================
 
-// const userList = ['admin', 'manager', 'employe'];
-
-// const isUserPresent = function(user, listOfUser) {
-//   return listOfUser.includes(user);
+// const hotels = {
+//   peris: 5,
+//   joni: 4,
+//   hayat: 5,
+//   redison: 1,
 // };
 
-// console.log(isUserPresent('manager', userList));
-
-// function declaration ==================================================
-
-// const userNames = getAllUserNames(userList);
-// console.log(userNames);
-
-// function getAllUserNames(list) {
-//   let result = '';
-//   for (let user of list) {
-//     result = result + user + ' ';
+// function calculateTotalStars(hotels) {
+//   let sum = 0;
+//   for (let hotel in hotels) {
+//     sum += hotels[hotel];
 //   }
-//   return result;
+//   return sum;
 // }
 
-//======================================================================
+// function logAllObjectKeys(obj) {
+//   const arrOfKeys = Object.keys(obj);
 
-// const calculateSquare = function(width = 50, height = 100) {
-//   console.log(arguments);
-//   console.log(Array.from(arguments)); //Преобразовали псевдомассив
-//   return width * height;
-// };
-
-// const square = calculateSquare(500, 500, 600, 5, 10);
-
-// console.log(square);
-
-//======================================================================
-
-// const sumAllArguments = function(a, b, ...args) {
-//   let sum = 0;
-//   for (let i = 0; i < arguments.length; i++) {
-//     sum = sum + arguments[i];
+//   for (let key of arrOfKeys) {
+//     console.log(`Key is: ${key}`);
 //   }
+// }
 
-//   console.log(args);
-//   return sum;
+// function logAllObjectValues(obj) {
+//   const values = Object.values(obj);
+
+//   for (let value of values) {
+//     console.log(`Value is: ${value}`);
+//   }
+// }
+
+// // logAllObjectValues(hotels);
+
+// // logAllObjectKeys(hotels);
+
+// // console.log(calculateTotalStars(hotels));
+
+// // console.log(Object.entries(hotels));
+
+// const fruits = ['mango', 'banana', 'apple', 'peanapple'];
+// const newFruits = [...fruits];
+// console.log(newFruits, newFruits === fruits);
+
+// const arr = [1, 2, 3];
+
+// function foo(arr) {
+//   const res = [...arr]; // Для клонирования масссива
+
+//   for (let i = 0; i < res.length; i++) {
+//     res[i] = res[i] * 2;
+//   }
+//   return res;
+// }
+
+// console.log(arr);
+// console.log(foo(arr));
+
+// const films = [
+//   {
+//     rating: 9.8,
+//     title: 'MIB',
+//   },
+//   {
+//     rating: 8.8,
+//     title: 'Terminator',
+//   },
+//   {
+//     rating: 10,
+//     title: 'Zashiniki',
+//   },
+//   {
+//     rating: 0.8,
+//     title: 'Avatar',
+//   },
+// ];
+
+// //Мое решение
+// function findMaxRating(films) {
+//   // let arrFoRating = [];
+//   let goodFilm = films[0];
+//   for (let film of films) {
+//     // console.log(film.rating);
+//     if (film.rating > goodFilm.rating) {
+//       goodFilm = film;
+//     }
+//   }
+//   console.log(goodFilm);
+// }
+
+// findMaxRating(films);
+
+// function findFilmWithMaxRating(films) {
+//   let filmWithMaxRating = films.length && films[0];
+
+//   for (let film of films) {
+//     if (filmWithMaxRating.rating < film.rating) {
+//       filmWithMaxRating = film;
+//     }
+//   }
+//   return filmWithMaxRating;
+// }
+
+// console.log(findFilmWithMaxRating(films));
+
+// const film = {
+//   rating: 9.8,
+//   title: 'MIB',
+//   comments: ['sss', 'bbb'],
 // };
 
-// const sum = sumAllArguments(50, 40, 30, 60, 10);
-// console.log(sum);
+// const newFilm = { ...film };
 
-// let userInput1 = Number(prompt());
-// let userInput2 = Number(prompt());
+// newFilm.comments[0] = 'hello';
+// console.log(film, 'old film');
+// console.log(newFilm, 'old film');
 
-// const sumNumber = function(a, b) {
-//   return a + b;
+// const findMax = (...rest) => {
+//   // console.log(arguments);
+//   return Math.max(...rest);
 // };
 
-// console.log(sumNumber(userInput1, userInput2));
+// console.log(findMax(5, 10, 25, 33, 2, 25, 28, 99, 11));
 
-let userList = ['sada', 'aswacca', 'asdassdasads'];
-
-let userInput = prompt();
-
-const userListArray = function(input) {
-  if (userInput) {
-    userList.push(input);
-    console.log('Вы добавлены');
-  }
-  return userList;
+const film = {
+  rating: 9.8,
+  title: 'MIB',
+  comments: ['yahoo', 'bamblee'],
 };
 
-console.log(userListArray(userInput));
+// const rating = film.rating;
+// const title = film.title;
+// const comments = film.comments;
+
+const { rating, title, comments = ['default'] } = film;
+const { rating: newRating, ...rest } = film;
+
+console.log(rating, title, comments);
+
+const [firstComment, ...second] = comments;
+
+console.log(firstComment, second);
