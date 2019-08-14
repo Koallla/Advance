@@ -139,15 +139,16 @@
 // const a = sum(2);
 // console.log(a(3));
 
-const pop = function() {
-  let arr = [];
-  return function(hell) {
-    arr.push(hell);
-    return arr;
-  };
-};
+// const pop = function() {
+//   let arr = [];
+//   return function(hell) {
+//     arr.push(hell);
+//     return arr;
+//   };
+// };
 
-const hell = pop();
-console.log(hell(200));
-console.log(hell(100));
-console.log(hell(700));
+// const hell = pop();
+// console.log(hell(200));
+// console.log(hell(100));
+// console.log(hell(700));
+
