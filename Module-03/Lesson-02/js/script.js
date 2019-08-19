@@ -79,17 +79,15 @@
 // ];
 
 // //Мое решение
-// function findMaxRating(films) {
-//   // let arrFoRating = [];
+// const findMaxRating = films => {
 //   let goodFilm = films[0];
 //   for (let film of films) {
-//     // console.log(film.rating);
 //     if (film.rating > goodFilm.rating) {
 //       goodFilm = film;
 //     }
 //   }
 //   console.log(goodFilm);
-// }
+// };
 
 // findMaxRating(films);
 

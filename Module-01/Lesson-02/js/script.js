@@ -123,9 +123,9 @@ let userInput;
 //   userInput = prompt('Введите свой логин');
 // } while (userInput !== userLogin);
 
-while (userInput !== userLogin) {
-  userInput = prompt('Введите свой логин');
-}
+// while (userInput !== userLogin) {
+//   userInput = prompt('Введите свой логин');
+// }
 
 // while (userInput !== userLogin) {
 //   userInput = prompt('Введите свой логин');
