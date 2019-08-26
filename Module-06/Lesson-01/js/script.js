@@ -70,7 +70,7 @@ const cart = {
   },
 
   add(product) {
-    this.productList.push(product);
+    this.productList.push(product); //this.productList = [...this.productList, product]
   },
 
   removeById(id) {
