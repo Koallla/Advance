@@ -1,0 +1,45 @@
+.cart {
+  max-width: 800px;
+  margin: 0 auto;
+  background: purple;
+  color: #fff;
+  min-height: 500px;
+  padding: 50px;
+}
+
+.cart__list {
+  list-style: none;
+}
+
+.cart__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin-bottom: 60px;
+}
+
+.cart__figure {
+  width: 300px;
+  margin: 0;
+}
+
+.cart__img {
+  max-width: 100%;
+}
+
+.cart__details {
+  flex: 1;
+  padding: 20px;
+}
+
+.btn {
+  display: block;
+  max-width: 150px;
+  margin-top: 20px;
+  background: red;
+  color: #fff;
+  padding: 8px 12px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
