@@ -1,4 +1,4 @@
-'use scripr';
+'use script';
 
 const popup = document.querySelector('.modal');
 const menuBtn = document.querySelector('.menu-btn');
