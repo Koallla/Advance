@@ -28,6 +28,7 @@ h1.textContent = 'Awesome title';
 
 body.insertBefore(h1, menuBtn);
 // ==========================================
+
 const ul = document.createElement('ul');
 const fruits = ['apple', 'mango', 'kiwi'];
 
