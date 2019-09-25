@@ -1,10 +1,15 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry: {
+    index: './src/js/index.js',
+    one: './src/js/one.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'build.js',
+    filename: '[name].build.js',
   },
   module: {
     rules: [
@@ -24,4 +29,11 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    hot: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({ template: './src/index.html', chunks: ['index'] }),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 };
