@@ -1,1 +1,1 @@
-console.log('This is one js script');
+console.log('This is one.js script');
