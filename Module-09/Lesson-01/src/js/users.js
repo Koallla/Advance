@@ -19,6 +19,9 @@ const userList = [
   },
 ];
 
+localStorage.setItem('userList', JSON.stringify(userList));
+// sessionStorage.setItem('userList', JSON.stringify(userList));
+
 export default function() {
   const userListContainer = document.querySelector('.users');
 
@@ -28,3 +31,8 @@ export default function() {
 
   userListContainer.innerHTML = users;
 }
+
+const str = JSON.stringify(userList);
+
+console.log(str, 'stringify');
+console.log(JSON.parse(str), 'str');

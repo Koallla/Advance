@@ -5,6 +5,7 @@ import Swiper from 'swiper';
 import '../css/style.css';
 import Heandlebars from 'handlebars';
 import Users from './users';
+import { UserForm } from './user-form';
 
 const sliderTemplate = document.querySelector('#slider-template').innerHTML;
 const template = Heandlebars.compile(sliderTemplate);
@@ -32,3 +33,6 @@ sliderWrapper.innerHTML = template({ items });
 const slider = new Swiper('.slider', { speed: 1000, effect: 'cube' });
 
 Users();
+
+const userForm = new UserForm();
+userForm.init();

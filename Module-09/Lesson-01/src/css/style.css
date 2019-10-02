@@ -9,6 +9,11 @@ body {
   height: 500px;
 }
 
+.user-card__inner {
+  background: yellow;
+  padding: 20px;
+}
+
 .swiper-slide {
   position: relative;
   height: 300px;
@@ -35,15 +40,34 @@ body {
 }
 
 .user-card {
-  background: yellow;
   color: purple;
   width: 33.333%;
   padding: 20px;
   box-sizing: border-box;
-  margin: 5px;
 }
 
 .users {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.user-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 15px;
+  font-size: 18px;
+  font-family: inherit;
+  border: 1px solid yellow;
+  background: none;
+  margin-bottom: 25px;
+}
+
+.input::placeholder {
+  color: #fff;
 }
