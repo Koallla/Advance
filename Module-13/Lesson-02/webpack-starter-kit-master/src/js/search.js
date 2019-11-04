@@ -1,5 +1,6 @@
 import apiConfig from './config';
 import clickOutside from './clickOutside';
+import { debounce } from 'lodash';
 
 export default function() {
   const searchForm = document.querySelector('.search');
@@ -32,7 +33,11 @@ export default function() {
   };
 
   const renderMovieList = movieList => {
-    ul.innerHTML = createMovieList(movieList);
+    if (!movieList.length) {
+      ul.innerHTML = '';
+    } else {
+      ul.innerHTML = createMovieList(movieList);
+    }
   };
 
   const openSearchList = () => {
@@ -45,13 +50,20 @@ export default function() {
     ul.classList.remove('active');
   };
 
-  clickOutside(searchListSelector, closeSearchList);
+  const onInputChange = async e => {
+    const name = searchInput.value;
+    let results = [];
+    if (name) {
+      const data = await setMovieListByName(name);
+      results = data.results;
+    }
 
-  searchForm.addEventListener('submit', async e => {
-    e.preventDefault();
-
-    const { results } = await setMovieListByName(searchInput.value);
     renderMovieList(results);
     openSearchList();
-  });
+  };
+
+  clickOutside(searchListSelector, closeSearchList);
+
+  searchInput.addEventListener('input', debounce(onInputChange, 200));
+  searchForm.addEventListener('input', e => e.preventDefault());
 }

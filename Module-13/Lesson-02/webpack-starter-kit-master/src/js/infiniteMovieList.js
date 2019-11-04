@@ -1,9 +1,11 @@
 import apiConfig from './config';
+import throttle from 'lodash/throttle';
 
 export default function() {
   const movieListContainer = document.querySelector('.movie-list');
   const { API_URL, API_KEY, IMG_SRC } = apiConfig;
   let currentPage = 1;
+  let isMovieListLoading = false;
   const fetchMovieList = (page = 1) => {
     currentPage = currentPage + 1;
     return fetch(
@@ -32,12 +34,17 @@ export default function() {
   };
 
   const getMovies = page => {
+    isMovieListLoading = true;
+
     fetchMovieList(page)
       .then(data => {
         renderMovieList(data.results);
       })
       .catch(error => {
         throw error;
+      })
+      .finally(() => {
+        isMovieListLoading = false;
       });
   };
 
@@ -48,16 +55,19 @@ export default function() {
     );
   };
 
-  const addInfinityScroll = () => {
-    window.addEventListener('scroll', () => {
-      const movieListBottom = movieListContainer.getBoundingClientRect().bottom;
-      const windowHeight = window.innerHeight;
+  const onScrollEvent = () => {
+    if (isMovieListLoading) return;
 
-      if (movieListBottom / 2 <= windowHeight) {
-        console.log('rich bottom');
-        getMovies(currentPage);
-      }
-    });
+    const movieListBottom = movieListContainer.getBoundingClientRect().bottom;
+    const windowHeight = window.innerHeight;
+
+    if (movieListBottom / 2 <= windowHeight) {
+      getMovies(currentPage);
+    }
+  };
+
+  const addInfinityScroll = () => {
+    window.addEventListener('scroll', throttle(onScrollEvent, 1000));
   };
 
   getMovies();
