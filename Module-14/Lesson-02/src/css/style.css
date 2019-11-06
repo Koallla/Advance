@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  font-size: 20px;
+  padding-top: 100px;
+}
+
+.header {
+  padding: 15px 0;
+  background: purple;
+  color: #fff;
+  position: fixed;
+  min-width: 100%;
+  top: 0;
+}
+
+.nav__item {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 30px;
+}
+
+.nav__item:last-child {
+  margin-right: 0;
+}
+
+.nav__item.active {
+  text-decoration: underline;
+}
